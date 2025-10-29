@@ -8,9 +8,8 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "LZT Market Viewer",
-  description: "Visualize detalhes de contas Valorant e League of Legends do LZT Market",
-  generator: "v0.app",
+  title: "Vava Accounts",
+  description: "Visualize detalhes de nossas contas de Valorant",
 }
 
 export default function RootLayout({
