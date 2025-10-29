@@ -97,7 +97,6 @@ async function getItemData(itemId: string): Promise<ItemData | null> {
       return null;
     }
 
-    console.log("[v0] Fetching item from LZT Market API:", itemId);
     const url = `https://prod-api.lzt.market/${itemId}`;
 
     const response = await fetch(url, {
@@ -108,7 +107,6 @@ async function getItemData(itemId: string): Promise<ItemData | null> {
       cache: "no-store",
     });
 
-    console.log("[v0] LZT Market API response status:", response.status);
 
     if (!response.ok) {
       console.error(
@@ -120,7 +118,6 @@ async function getItemData(itemId: string): Promise<ItemData | null> {
     }
 
     const data = await response.json();
-    console.log("[v0] Successfully received data from LZT Market");
     return data;
   } catch (error) {
     console.error("[v0] Error fetching item data:", error);

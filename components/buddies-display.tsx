@@ -28,7 +28,6 @@ export function BuddiesDisplay({ buddyIds }: BuddiesDisplayProps) {
       }
 
       try {
-        console.log("[v0] Client: Fetching buddies for", buddyIds.length, "IDs")
         const response = await fetch("/api/valorant/buddies", {
           method: "POST",
           headers: {
@@ -41,7 +40,6 @@ export function BuddiesDisplay({ buddyIds }: BuddiesDisplayProps) {
           throw new Error("Failed to fetch buddies")
         }
         const data = await response.json()
-        console.log("[v0] Client: Received", data.buddies?.length || 0, "buddies")
         setBuddies(data.buddies || [])
       } catch (err) {
         console.error("[v0] Client: Error loading buddies:", err)

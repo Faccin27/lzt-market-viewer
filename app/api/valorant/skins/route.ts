@@ -16,7 +16,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ skins: [] })
     }
 
-    console.log("[v0] Fetching Valorant skins for", skinIds.length, "IDs")
 
     // Fetch all Valorant skins from Valorant API with retry logic
     let valorantResponse
@@ -31,7 +30,6 @@ export async function POST(request: NextRequest) {
 
         if (valorantResponse.ok) break
 
-        console.log("[v0] Valorant API returned", valorantResponse.status, "- retrying...")
         retries--
         if (retries > 0) await new Promise((resolve) => setTimeout(resolve, 1000))
       } catch (error) {
@@ -49,7 +47,6 @@ export async function POST(request: NextRequest) {
     const valorantData = await valorantResponse.json()
     const allSkins = valorantData.data || []
 
-    console.log("[v0] Fetched", allSkins.length, "total skins from Valorant API")
 
     // Filter skins that exist in the account
     const accountSkins = allSkins
@@ -66,7 +63,6 @@ export async function POST(request: NextRequest) {
         return rarityA - rarityB
       })
 
-    console.log("[v0] Filtered to", accountSkins.length, "account skins")
 
     return NextResponse.json({ skins: accountSkins })
   } catch (error) {

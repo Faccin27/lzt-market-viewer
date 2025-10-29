@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ agents: [] })
     }
 
-    console.log("[v0] Fetching Valorant agents for", agentIds.length, "IDs")
 
     // Fetch all Valorant agents from Valorant API with retry logic
     let valorantResponse
@@ -23,7 +22,6 @@ export async function POST(request: NextRequest) {
 
         if (valorantResponse.ok) break
 
-        console.log("[v0] Valorant API returned", valorantResponse.status, "- retrying...")
         retries--
         if (retries > 0) await new Promise((resolve) => setTimeout(resolve, 1000))
       } catch (error) {
@@ -41,7 +39,6 @@ export async function POST(request: NextRequest) {
     const valorantData = await valorantResponse.json()
     const allAgents = valorantData.data || []
 
-    console.log("[v0] Fetched", allAgents.length, "total agents from Valorant API")
 
     // Filter agents that exist in the account and are playable
     const accountAgents = allAgents
@@ -54,7 +51,6 @@ export async function POST(request: NextRequest) {
       }))
       .sort((a: any, b: any) => a.displayName.localeCompare(b.displayName))
 
-    console.log("[v0] Filtered to", accountAgents.length, "account agents")
 
     return NextResponse.json({ agents: accountAgents })
   } catch (error) {

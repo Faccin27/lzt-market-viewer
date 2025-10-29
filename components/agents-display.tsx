@@ -29,7 +29,6 @@ export function AgentsDisplay({ agentIds }: AgentsDisplayProps) {
       }
 
       try {
-        console.log("[v0] Client: Fetching agents for", agentIds.length, "IDs")
         const response = await fetch("/api/valorant/agents", {
           method: "POST",
           headers: {
@@ -42,7 +41,6 @@ export function AgentsDisplay({ agentIds }: AgentsDisplayProps) {
           throw new Error("Failed to fetch agents")
         }
         const data = await response.json()
-        console.log("[v0] Client: Received", data.agents?.length || 0, "agents")
         setAgents(data.agents || [])
       } catch (err) {
         console.error("[v0] Client: Error loading agents:", err)

@@ -8,7 +8,6 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ buddies: [] })
     }
 
-    console.log("[v0] Fetching Valorant buddies for", buddyIds.length, "IDs")
 
     // Fetch all Valorant buddies from Valorant API with retry logic
     let valorantResponse
@@ -23,7 +22,6 @@ export async function POST(request: NextRequest) {
 
         if (valorantResponse.ok) break
 
-        console.log("[v0] Valorant API returned", valorantResponse.status, "- retrying...")
         retries--
         if (retries > 0) await new Promise((resolve) => setTimeout(resolve, 1000))
       } catch (error) {
@@ -41,7 +39,6 @@ export async function POST(request: NextRequest) {
     const valorantData = await valorantResponse.json()
     const allBuddies = valorantData.data || []
 
-    console.log("[v0] Fetched", allBuddies.length, "total buddies from Valorant API")
 
     // Filter buddies that exist in the account
     const accountBuddies = allBuddies
@@ -53,7 +50,6 @@ export async function POST(request: NextRequest) {
       }))
       .sort((a: any, b: any) => a.displayName.localeCompare(b.displayName))
 
-    console.log("[v0] Filtered to", accountBuddies.length, "account buddies")
 
     return NextResponse.json({ buddies: accountBuddies })
   } catch (error) {

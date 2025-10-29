@@ -29,7 +29,6 @@ export function WeaponSkinsDisplay({ skinIds }: WeaponSkinsDisplayProps) {
       }
 
       try {
-        console.log("[v0] Client: Fetching skins for", skinIds.length, "IDs")
         const response = await fetch("/api/valorant/skins", {
           method: "POST",
           headers: {
@@ -42,7 +41,6 @@ export function WeaponSkinsDisplay({ skinIds }: WeaponSkinsDisplayProps) {
           throw new Error("Failed to fetch skins")
         }
         const data = await response.json()
-        console.log("[v0] Client: Received", data.skins?.length || 0, "skins")
         setSkins(data.skins || [])
       } catch (err) {
         console.error("[v0] Client: Error loading skins:", err)
