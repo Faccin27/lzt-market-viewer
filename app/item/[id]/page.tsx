@@ -93,7 +93,6 @@ async function getItemData(itemId: string): Promise<ItemData | null> {
     const token = process.env.LZT_MARKET_TOKEN;
 
     if (!token) {
-      console.error("[v0] LZT_MARKET_TOKEN not found in environment variables");
       return null;
     }
 
@@ -107,20 +106,14 @@ async function getItemData(itemId: string): Promise<ItemData | null> {
       cache: "no-store",
     });
 
-
     if (!response.ok) {
-      console.error(
-        "[v0] LZT Market API error:",
-        response.status,
-        response.statusText
-      );
+      console.error(response.status, response.statusText);
       return null;
     }
 
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error("[v0] Error fetching item data:", error);
     return null;
   }
 }
@@ -157,24 +150,6 @@ export default async function ItemPage({
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 py-8 relative z-10">
-        <div className="mb-8">
-          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 p-6 bg-card/50 backdrop-blur-sm border-2 border-primary/20 rounded-xl glow-orange">
-            <div className="flex-1">
-              <h1 className="text-4xl font-black mb-2 text-balance text-glow">
-                {item.title_en}
-              </h1>
-            </div>
-            <div className="text-left lg:text-right">
-              <div className="text-5xl font-black text-primary text-glow">
-                ${item.price}
-              </div>
-              <div className="text-sm text-muted-foreground mt-1">
-                Conta avaliada em USD
-              </div>
-            </div>
-          </div>
-        </div>
-
         <div className="space-y-6">
           {/* General Info Section */}
           <Card className="border-2 border-primary/20 bg-card/50 backdrop-blur-sm">
@@ -190,7 +165,7 @@ export default async function ItemPage({
                   <Globe className="h-5 w-5 text-primary" />
                   <div>
                     <div className="text-xs text-muted-foreground">Região</div>
-                    <div className="font-bold text-lg">{item.riot_country}</div>
+                    <div className="font-bold text-lg">Brasil</div>
                   </div>
                 </div>
 
@@ -235,7 +210,7 @@ export default async function ItemPage({
                       Risco de recuperação
                     </div>
                     <Badge variant="outline" className="mt-1">
-                      Baixo
+                      Nenhum
                     </Badge>
                   </div>
                 </div>
@@ -325,9 +300,7 @@ export default async function ItemPage({
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 bg-background/50 rounded-lg border border-primary/10">
                     <div className="text-xs text-muted-foreground">Região</div>
-                    <div className="font-bold text-lg">
-                      {item.valorantRegionPhrase}
-                    </div>
+                    <div className="font-bold text-lg">Brasil</div>
                   </div>
 
                   <div className="p-4 bg-background/50 rounded-lg border border-primary/10">
