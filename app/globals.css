@@ -4,40 +4,40 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Gamer dark theme with orange accent */
-  --background: oklch(0.08 0.01 30);
-  --foreground: oklch(0.95 0.01 30);
-  --card: oklch(0.12 0.015 30);
-  --card-foreground: oklch(0.95 0.01 30);
-  --popover: oklch(0.12 0.015 30);
-  --popover-foreground: oklch(0.95 0.01 30);
-  --primary: oklch(0.68 0.19 45);
-  --primary-foreground: oklch(0.08 0.01 30);
-  --secondary: oklch(0.18 0.02 30);
-  --secondary-foreground: oklch(0.95 0.01 30);
-  --muted: oklch(0.18 0.02 30);
-  --muted-foreground: oklch(0.55 0.02 30);
-  --accent: oklch(0.68 0.19 45);
-  --accent-foreground: oklch(0.08 0.01 30);
+  /* Gamer dark theme with purple accent */
+  --background: oklch(0.08 0.01 300);
+  --foreground: oklch(0.95 0.01 300);
+  --card: oklch(0.12 0.015 300);
+  --card-foreground: oklch(0.95 0.01 300);
+  --popover: oklch(0.12 0.015 300);
+  --popover-foreground: oklch(0.95 0.01 300);
+  --primary: oklch(0.68 0.19 300); /* main purple accent */
+  --primary-foreground: oklch(0.08 0.01 300);
+  --secondary: oklch(0.18 0.02 300);
+  --secondary-foreground: oklch(0.95 0.01 300);
+  --muted: oklch(0.18 0.02 300);
+  --muted-foreground: oklch(0.55 0.02 300);
+  --accent: oklch(0.68 0.19 300);
+  --accent-foreground: oklch(0.08 0.01 300);
   --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.95 0.01 30);
-  --border: oklch(0.2 0.02 30);
-  --input: oklch(0.2 0.02 30);
-  --ring: oklch(0.68 0.19 45);
-  --chart-1: oklch(0.68 0.19 45);
-  --chart-2: oklch(0.65 0.18 25);
-  --chart-3: oklch(0.6 0.15 60);
-  --chart-4: oklch(0.7 0.16 10);
-  --chart-5: oklch(0.75 0.14 50);
+  --destructive-foreground: oklch(0.95 0.01 300);
+  --border: oklch(0.2 0.02 300);
+  --input: oklch(0.2 0.02 300);
+  --ring: oklch(0.68 0.19 300);
+  --chart-1: oklch(0.68 0.19 300);
+  --chart-2: oklch(0.65 0.18 280);
+  --chart-3: oklch(0.6 0.15 320);
+  --chart-4: oklch(0.7 0.16 290);
+  --chart-5: oklch(0.75 0.14 310);
   --radius: 0.75rem;
-  --sidebar: oklch(0.12 0.015 30);
-  --sidebar-foreground: oklch(0.95 0.01 30);
-  --sidebar-primary: oklch(0.68 0.19 45);
-  --sidebar-primary-foreground: oklch(0.08 0.01 30);
-  --sidebar-accent: oklch(0.18 0.02 30);
-  --sidebar-accent-foreground: oklch(0.95 0.01 30);
-  --sidebar-border: oklch(0.2 0.02 30);
-  --sidebar-ring: oklch(0.68 0.19 45);
+  --sidebar: oklch(0.12 0.015 300);
+  --sidebar-foreground: oklch(0.95 0.01 300);
+  --sidebar-primary: oklch(0.68 0.19 300);
+  --sidebar-primary-foreground: oklch(0.08 0.01 300);
+  --sidebar-accent: oklch(0.18 0.02 300);
+  --sidebar-accent-foreground: oklch(0.95 0.01 300);
+  --sidebar-border: oklch(0.2 0.02 300);
+  --sidebar-ring: oklch(0.68 0.19 300);
 }
 
 @theme inline {
@@ -90,20 +90,20 @@
 
 /* Custom gamer styles */
 @layer utilities {
-  .glow-orange {
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+  .glow-purple {
+    box-shadow: 0 0 20px rgba(155, 89, 255, 0.3);
   }
 
-  .glow-orange-strong {
-    box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+  .glow-purple-strong {
+    box-shadow: 0 0 30px rgba(155, 89, 255, 0.5);
   }
 
   .text-glow {
-    text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+    text-shadow: 0 0 10px rgba(155, 89, 255, 0.5);
   }
 
   .border-glow {
-    border-color: oklch(0.68 0.19 45);
-    box-shadow: 0 0 10px rgba(255, 107, 53, 0.2);
+    border-color: oklch(0.68 0.19 300);
+    box-shadow: 0 0 10px rgba(155, 89, 255, 0.3);
   }
 }

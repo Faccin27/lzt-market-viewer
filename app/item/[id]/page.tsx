@@ -53,7 +53,7 @@ interface ItemData {
     riot_lol_skin_count: number;
     riot_lol_champion_count: number;
     riot_lol_wallet_blue: number;
-    riot_lol_wallet_orange: number;
+    riot_lol_wallet_purple: number;
     riot_lol_wallet_mythic: number;
     riot_lol_wallet_riot: number;
     riot_lol_rank: string;
@@ -150,6 +150,12 @@ export default async function ItemPage({
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-4 py-8 relative z-10">
+        <div className="flex gap-6 p-6 bg-card/50 backdrop-blur-sm border-2 border-primary/20 rounded-xl glow-purple mb-8">
+          <h1 className="text-4xl text-center mx-auto font-black mb-2 text-balance text-glow">
+           VAVA Acc0unts
+          </h1>
+        </div>
+
         <div className="space-y-6">
           {/* General Info Section */}
           <Card className="border-2 border-primary/20 bg-card/50 backdrop-blur-sm">
@@ -496,7 +502,7 @@ export default async function ItemPage({
                         Essência Laranja
                       </div>
                       <div className="text-2xl font-black text-primary">
-                        {item.riot_lol_wallet_orange}
+                        {item.riot_lol_wallet_purple}
                       </div>
                     </div>
 
